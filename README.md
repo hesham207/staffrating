@@ -195,7 +195,7 @@ The app is intended to be deployed on Render using a PostgreSQL database.
 Live app link:
 
 ```text
-ADD_RENDER_LINK_HERE
+https://staffrating-myr7.onrender.com
 ```
 
 ## GitHub Repository
@@ -203,7 +203,7 @@ ADD_RENDER_LINK_HERE
 GitHub repository link:
 
 ```text
-ADD_GITHUB_LINK_HERE
+https://github.com/hesham207/staffrating
 ```
 
 ## AI Assistance Declaration
