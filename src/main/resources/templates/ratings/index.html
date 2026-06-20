@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate CS Teaching Staff</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rate CS Teaching Staff</h1>
+            <p>View ratings for teaching assistants, professors, instructors, and staff.</p>
+            <a class="button" th:href="@{/ratings/new}">Add New Rating</a>
+        </header>
+
+        <section class="card">
+            <h2>All Staff Ratings</h2>
+
+            <p th:if="${#lists.isEmpty(ratings)}">No ratings have been added yet.</p>
+
+            <table th:if="${!#lists.isEmpty(ratings)}">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Overall Score</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="rating : ${ratings}">
+                        <td th:text="${rating.name}">Name</td>
+                        <td th:text="${rating.roleType}">Role</td>
+                        <td th:text="${#numbers.formatDecimal(rating.overallScore, 1, 1)}">0.0</td>
+                        <td>
+                            <a th:href="@{/ratings/{id}(id=${rating.id})}">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+</html>

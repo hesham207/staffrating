@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rating Details</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rating Details</h1>
+            <a th:href="@{/ratings}">Back to List</a>
+        </header>
+
+        <section class="card">
+            <h2 th:text="${rating.name}">Staff Name</h2>
+
+            <p><strong>Email:</strong> <span th:text="${rating.email}">email@example.com</span></p>
+            <p><strong>Role:</strong> <span th:text="${rating.roleType}">TA</span></p>
+            <p><strong>Display Title:</strong> <span th:text="${displayTitle}">Teaching Assistant</span></p>
+
+            <p><strong>Clarity:</strong> <span th:text="${rating.clarity}">0</span>/10</p>
+            <p><strong>Niceness:</strong> <span th:text="${rating.niceness}">0</span>/10</p>
+            <p><strong>Knowledge:</strong> <span th:text="${rating.knowledgeableScore}">0</span>/10</p>
+            <p><strong>Overall Score:</strong> <span th:text="${#numbers.formatDecimal(rating.overallScore, 1, 1)}">0.0</span>/10</p>
+
+            <p><strong>Comment:</strong></p>
+            <p th:text="${rating.comment}">No comment</p>
+
+            <div class="actions">
+                <a class="button" th:href="@{/ratings/{id}/edit(id=${rating.id})}">Edit</a>
+                <a class="button danger" th:href="@{/ratings/{id}/delete(id=${rating.id})}">Delete</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
